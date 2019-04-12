@@ -66,13 +66,12 @@ class LotteryTicket
 		hash_winning_tickets = Hash.new
 		i = 1
 
-		@array_winning_tickets.each do |awt| 
-			#hash_winning_tickets[awt[1]] = get_award(awt[0])
+		@array_winning_tickets.each do |awt|
 			hash_winning_tickets[i] = [awt[1], get_award(awt[0])]
 			i += 1
 		end
 
-		puts "List of winning tickets with awards:"
+		puts "List of winning tickets with awards:" unless hash_winning_tickets.empty?
 		hash_winning_tickets.each do |key, value|
 			puts "Ticket #{key} with number #{value[0].join(' ')}: #{value[1]}"
 		end
